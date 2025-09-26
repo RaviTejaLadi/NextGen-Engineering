@@ -7,9 +7,9 @@ import { CategoriesPage } from './pages/CategoriesPage';
 import { CategoryPage } from './pages/CategoryPage';
 import { ArticlePage } from './pages/ArticlePage';
 import { categories } from './data/categories';
-import DynamicBlogRenderer from './features/DynamicBlogRenderer/components/DynamicBlogRenderer';
+// import DynamicBlogRenderer from './features/DynamicBlogRenderer/components/DynamicBlogRenderer';
 // import { icEngineSchema } from "./data/mech/icEngineSchema";
-import { test } from './data/mech/test';
+// import { test } from './data/mech/test';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -33,7 +33,7 @@ function App() {
   return (
     <>
       <Header onSearchChange={handleSearchChange} searchQuery={searchQuery} />
-      <DynamicBlogRenderer schema={test} />
+      {/* <DynamicBlogRenderer schema={test} /> */}
 
       <div className="min-h-screen bg-background">
         <main className="container mx-auto px-4 py-8 md:px-6">
