@@ -65,7 +65,6 @@ export interface CardComponent extends BaseComponent {
   description?: string;
   content?: ComponentSchema[];
   footer?: string;
-  variant?: 'default' | 'featured' | 'minimal';
 }
 
 export interface BadgeComponent extends BaseComponent {

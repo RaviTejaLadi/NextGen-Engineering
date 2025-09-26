@@ -137,7 +137,7 @@ const AlertRenderer: React.FC<{ component: AlertComponent }> = ({ component }) =
 
 const AccordionRenderer: React.FC<{ component: AccordionComponent }> = ({ component }) => {
   return (
-    <div className="w-full mb-8 bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="w-full mb-8 bg-background border border-input rounded-lg shadow-md overflow-hidden">
       <Accordion
         type="single"
         collapsible={true}
@@ -148,14 +148,14 @@ const AccordionRenderer: React.FC<{ component: AccordionComponent }> = ({ compon
           <AccordionItem
             key={index}
             value={index.toString()}
-            className={cn('border-b border-slate-100', index === component.items.length - 1 ? 'border-b-0' : '')}
+            className={cn('border-b border-input', index === component.items.length - 1 ? 'border-b-0' : '')}
           >
-            <AccordionTrigger className="flex justify-between items-center w-full py-3 px-4 text-left hover:bg-gradient-to-r hover:from-purple-50 hover:to-blue-50 transition-all duration-300 hover:no-underline">
-              <span className="font-semibold text-slate-800 text-lg pr-4 leading-relaxed">{item.title}</span>
+            <AccordionTrigger className="flex justify-between items-center w-full py-3 px-4 text-left  transition-all duration-300 hover:no-underline">
+              <span className="font-semibold text-foreground text-lg pr-4 leading-relaxed">{item.title}</span>
             </AccordionTrigger>
             <AccordionContent className="overflow-hidden">
               <div className="px-4 py-3">
-                <p className="text-slate-600 leading-relaxed font-light text-base">{item.content}</p>
+                <p className="text-muted-foreground leading-relaxed font-light text-base">{item.content}</p>
               </div>
             </AccordionContent>
           </AccordionItem>
@@ -190,7 +190,7 @@ const ListRenderer: React.FC<{ component: ListComponent }> = ({ component }) => 
   const ListComponent = ordered ? 'ol' : 'ul';
 
   return (
-    <div className="mb-8 bg-gradient-to-r from-slate-50 to-purple-50 rounded-lg p-6 shadow-md">
+    <div className="mb-8 bg-background border border-input rounded-lg p-6 shadow-md">
       <ListComponent className={ordered ? 'space-y-3' : 'space-y-3'}>
         {items.map((item, index) => (
           <li key={index} className="flex items-start">
@@ -210,24 +210,18 @@ const ListRenderer: React.FC<{ component: ListComponent }> = ({ component }) => 
 };
 
 const CardRenderer: React.FC<{ component: CardComponent }> = ({ component }) => {
-  const { title, description, content, footer, variant = 'default' } = component;
-
-  const variants = {
-    default: 'bg-white border-slate-200',
-    featured: 'bg-gradient-to-br from-purple-50 via-white to-blue-50 border-purple-200',
-    minimal: 'bg-slate-50 border-slate-100',
-  };
+  const { title, description, content, footer, } = component;
 
   return (
     <Card
       className={cn(
-        'rounded-lg border-2 transition-all duration-300 transform hover:scale-[1.02] mb-8 overflow-hidden shadow-md hover:shadow-lg',
-        variants[variant]
+        ' bg-background border-input rounded-lg border-2 transition-all duration-300 transform hover:scale-[1.02] mb-8 overflow-hidden shadow-md hover:shadow-lg',
+        // variants[variant]
       )}
     >
       <CardHeader className="p-8 pb-0">
-        {title && <h3 className="text-2xl font-bold text-slate-800 mb-4 leading-tight">{title}</h3>}
-        {description && <p className="text-slate-600 font-light mb-6 leading-relaxed">{description}</p>}
+        {title && <h3 className="text-2xl font-bold text-foreground mb-4 leading-tight">{title}</h3>}
+        {description && <p className="text-muted-foreground font-light mb-6 leading-relaxed">{description}</p>}
       </CardHeader>
 
       {content && (
@@ -241,8 +235,8 @@ const CardRenderer: React.FC<{ component: CardComponent }> = ({ component }) => 
       )}
 
       {footer && (
-        <CardFooter className="px-8 py-4 bg-gradient-to-r from-slate-50 to-purple-50 border-t border-slate-100 p-0">
-          <p className="text-slate-500 font-light text-sm italic w-full p-8 pt-4">{footer}</p>
+        <CardFooter className="px-8 py-4  border-t border-input p-0">
+          <p className="text-muted-foreground font-light text-sm italic w-full p-8 pt-4">{footer}</p>
         </CardFooter>
       )}
     </Card>

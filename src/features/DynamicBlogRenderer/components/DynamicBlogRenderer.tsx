@@ -5,8 +5,8 @@ import { Separator } from '@/components/ui/separator';
 
 const DynamicBlogRenderer: React.FC<{ schema: DynamicBlogRendererProps }> = ({ schema }) => {
   return (
-    <div className="container min-h-screen bg-background">
-      <article className="relative  mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20">
+    <div className="container px-32 min-h-screen bg-background">
+      <article className="relative mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20">
         {/* Header */}
         <header className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-12 lg:mb-20">
           <div className="flex-shrink-0">
