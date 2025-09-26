@@ -1,10 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Search, Menu, Moon, Sun, GraduationCap } from 'lucide-react';
-import { useTheme } from './ThemeProvider';
+import { useTheme } from '@/hooks/useTheme';
 
 interface HeaderProps {
   onSearchChange: (query: string) => void;
@@ -12,7 +11,7 @@ interface HeaderProps {
 }
 
 export function Header({ onSearchChange, searchQuery }: HeaderProps) {
-  const { setTheme, theme } = useTheme();
+  const { toggleTheme } = useTheme();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -77,7 +76,7 @@ export function Header({ onSearchChange, searchQuery }: HeaderProps) {
             </div>
           </div>
 
-          <Button variant="ghost" size="icon" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+          <Button variant="ghost" size="icon" onClick={toggleTheme}>
             <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             <span className="sr-only">Toggle theme</span>

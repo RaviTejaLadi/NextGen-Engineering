@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from './components/ThemeProvider';
 import { Header } from './components/Header';
 import { SearchResults } from './components/SearchResults';
 import { HomePage } from './pages/HomePage';
@@ -32,7 +31,7 @@ function App() {
     : [];
 
   return (
-    <ThemeProvider defaultTheme="system" storageKey="me-theme">
+    <>
       <Header onSearchChange={handleSearchChange} searchQuery={searchQuery} />
       <DynamicBlogRenderer schema={test} />
 
@@ -50,7 +49,7 @@ function App() {
           )}
         </main>
       </div>
-    </ThemeProvider>
+    </>
   );
 }
 
