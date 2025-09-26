@@ -65,7 +65,7 @@ const ButtonRenderer: React.FC<{ component: ButtonComponent }> = ({ component })
   const { text, variant = 'primary', size = 'md', href, onClick } = component;
 
   const baseClasses =
-    'inline-flex items-center justify-center font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-lg shadow-md hover:shadow-lg';
+    'inline-flex ml-3 items-center justify-center font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-lg shadow-md hover:shadow-lg';
 
   const variants = {
     primary:
@@ -201,7 +201,7 @@ const ListRenderer: React.FC<{ component: ListComponent }> = ({ component }) => 
             ) : (
               <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mr-4 mt-3"></div>
             )}
-            <span className="text-foreground leading-relaxed font-light flex-1">{item}</span>
+            <span className="text-muted-foreground leading-relaxed font-light flex-1">{item}</span>
           </li>
         ))}
       </ListComponent>
@@ -253,7 +253,7 @@ const BadgeRenderer: React.FC<{ component: BadgeComponent }> = ({ component }) =
   const { text, variant = 'default' } = component;
 
   const variants = {
-    default: 'bg-slate-100 text-foreground hover:bg-slate-200',
+    default: 'bg-slate-100 text-muted-foreground hover:bg-slate-200',
     featured: 'bg-gradient-to-r from-purple-500 to-blue-500 text-foreground hover:from-purple-600 hover:to-blue-600',
     outline: 'border-2 border-purple-300 text-foreground hover:bg-purple-50',
     gradient:
