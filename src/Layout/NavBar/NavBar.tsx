@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Search, Menu, Moon, Sun, GraduationCap } from 'lucide-react';
+import { Search, Moon, Sun, GraduationCap } from 'lucide-react';
 import { useTheme } from '@/hooks/useTheme';
+import NavSheet from './NavSheet';
 
-interface HeaderProps {
+interface NavBarProps {
   onSearchChange: (query: string) => void;
   searchQuery: string;
 }
 
-export function Header({ onSearchChange, searchQuery }: HeaderProps) {
+export function NavBar({ onSearchChange, searchQuery }: NavBarProps) {
   const { toggleTheme } = useTheme();
 
   return (
@@ -19,7 +19,7 @@ export function Header({ onSearchChange, searchQuery }: HeaderProps) {
         <div className="mr-4 hidden md:flex">
           <Link to="/" className="mr-6 flex items-center space-x-2">
             <GraduationCap className="h-6 w-6 text-primary" />
-            <span className="hidden font-bold sm:inline-block">MechEng Blog</span>
+            <span className="hidden font-bold sm:inline-block">NextGen Engineering Blogs</span>
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link to="/categories" className="transition-colors hover:text-foreground/80 text-foreground/60">
@@ -31,36 +31,7 @@ export function Header({ onSearchChange, searchQuery }: HeaderProps) {
           </nav>
         </div>
 
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
-            >
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle Menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="pr-0">
-            <SheetHeader>
-              <SheetTitle className="flex items-center">
-                <GraduationCap className="mr-2 h-5 w-5" />
-                MechEng Blog
-              </SheetTitle>
-              <SheetDescription>Mechanical Engineering Knowledge Hub</SheetDescription>
-            </SheetHeader>
-            <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
-              <div className="flex flex-col space-y-3">
-                <Link to="/categories" className="transition-colors hover:text-foreground/80 text-foreground/60">
-                  Categories
-                </Link>
-                <Link to="/about" className="transition-colors hover:text-foreground/80 text-foreground/60">
-                  About
-                </Link>
-              </div>
-            </div>
-          </SheetContent>
-        </Sheet>
+        <NavSheet />
 
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">

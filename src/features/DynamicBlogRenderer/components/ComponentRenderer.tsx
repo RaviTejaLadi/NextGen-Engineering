@@ -210,12 +210,12 @@ const ListRenderer: React.FC<{ component: ListComponent }> = ({ component }) => 
 };
 
 const CardRenderer: React.FC<{ component: CardComponent }> = ({ component }) => {
-  const { title, description, content, footer, } = component;
+  const { title, description, content, footer } = component;
 
   return (
     <Card
       className={cn(
-        ' bg-background border-input rounded-lg border-2 transition-all duration-300 transform hover:scale-[1.02] mb-8 overflow-hidden shadow-md hover:shadow-lg',
+        ' bg-background border-input rounded-lg border-2 transition-all duration-300 transform hover:scale-[1.02] mb-8 overflow-hidden shadow-md hover:shadow-lg'
         // variants[variant]
       )}
     >

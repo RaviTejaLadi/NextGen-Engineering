@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Header } from './components/Header';
 import { SearchResults } from './components/SearchResults';
 import { HomePage } from './pages/HomePage';
 import { CategoriesPage } from './pages/CategoriesPage';
 import { CategoryPage } from './pages/CategoryPage';
 import { ArticlePage } from './pages/ArticlePage';
 import { categories } from './data/categories';
-// import DynamicBlogRenderer from './features/DynamicBlogRenderer/components/DynamicBlogRenderer';
-// import { icEngineSchema } from "./data/mech/icEngineSchema";
-// import { test } from './data/mech/test';
+import { NavBar } from './Layout/NavBar/NavBar';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -32,8 +29,7 @@ function App() {
 
   return (
     <>
-      <Header onSearchChange={handleSearchChange} searchQuery={searchQuery} />
-      {/* <DynamicBlogRenderer schema={test} /> */}
+      <NavBar onSearchChange={handleSearchChange} searchQuery={searchQuery} />
 
       <div className="min-h-screen bg-background">
         <main className="container mx-auto px-4 py-8 md:px-6">
